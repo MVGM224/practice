@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "demo-trainee-web"
+  "defaultProject": "demo-trainee-web",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
