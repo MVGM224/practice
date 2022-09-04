@@ -34,10 +34,11 @@
         display: inline-block;
         padding-bottom: 20px;
         box-shadow: rgba(143, 143, 143, 0.295) 0px 7px 29px 0px;
-        margin-right: 52px;
+        margin-right: -72px;
         padding-right: 80px;
         padding-left: 94px;
-        margin-left: 30px;
+        margin-left: 72px;
+        align-items: left;
  }
 
  .link { 
@@ -59,3 +60,9 @@ p{
 
     text-decoration: none
   }
+  .h6, h6 {
+    font-size: -8rem;
+}
+.h3, h3 {
+  font-size: -30.25rem;
+}
