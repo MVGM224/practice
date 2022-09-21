@@ -65,6 +65,7 @@
     float: right;
     height: 100%;
     overflow-y: auto;
+    overflow-x:hidden;
     padding-right: 14px;
     position: relative;
     display: flex;
@@ -82,7 +83,7 @@
 }
 .btn-link {
     font-weight:400px;
-    color:#777;
+    color:blue;
     text-decoration: none;
     padding: 0;
     float:left;
@@ -132,14 +133,15 @@
         
 
 .clsgrid {
-    display: grid;
-    justify-content: center;
+    display:block;
+    width: 80%;
+    margin:0 auto;
 }
 
 .btn-primary {
     border-color: #700013;
     background-color: #ffffff;
-    color: #700013;
+    color:brown;
     width: 103px;
     float:right;
     height:36px;
@@ -245,4 +247,13 @@ input:hover {
 }
 .style {
    font-size: 13px;
+}
+.img {
+    width:20px;
+    margin-bottom:3px;
+    font-size:10px;
+    font-family:poppins;
+    font-weight:bold;
+     margin-right:-5px;
+     border: right 1px;
 }
