@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Alert, AlertPromise } from 'selenium-webdriver';
+
+// import { AuthserviceService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
     password:new FormControl("",[Validators.required,Validators.maxLength(8)]),
     checkbox:new FormControl("",[Validators.required])
   });
-  constructor( private router:Router) { }
+  constructor( private router:Router){}
+    //  private authservice:AuthserviceService) { }
 
   ngOnInit() {
   }
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
 
     if(this.formgroup.valid)
     {
+
       this.router.navigate(['/landing'])
       
     }

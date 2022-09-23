@@ -175,84 +175,88 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
 
-    <div class="modal fade" id="add-decision" tabindex="-1">
-      <div class="modal-dialog ">
-        <div class="modal-content">
-          <div class="container">
-              <div class="modal-header">
-                  <h4 class="modal-title">Add Project</h4>
-                  <i style="font-size:24px;color:bl;padding-bottom: 16px;padding-right:16px;" class="fa">&#xf00d;</i>
-                </div>
-            <div class="row">
-              <div class="col-12">
-              <label><b>Project</b></label><br>
+  <div class="modal fade" id="add-decision" tabindex="-1">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="container" [formGroup]="landingform" (ngSubmit)="onSubmit()">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Project</h4>
+            <button style="border-color: white;"> <i style="font-size:24px;color:bl;" class="fa"
+                data-dismiss="modal">&#xf00d;</i></button>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label ><b>Project</b></label><br>
               <select style="width:100%;padding:10px;margin:5px;border-radius: 5px;
-                box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey" name="languages"
-              id="lang">
-  
-              <option value="text">cardinality</option>
-              <option value="text">Particleblack</option>
-              <option value="java">MDCRM</option>
-              <option value="golang">JJIS</option>
-            </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                  <label for="lang"><b>Dev/Qa Team</b></label><br>
-                  <select style="width:100%;padding:10px;margin:5px; border-radius: 5px;
-                        box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
-                    name="languages" id="lang">
-                    <option value="javascript">HTML</option>
-                    <option value="php">QA</option>
-                    <option value="java">Angular</option>
-                    
-                  </select></div>
-            </div>
-            <div class="row">
-              <div class="col-6"><label for="lang"><b>Status</b></label><br>
-                  <select style="width:100%;padding:10px;margin:5px;
-                      box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
-                    name="languages" id="lang">
-                   <option value="javascript">Completed</option>
-                    <option value="php">Hold</option>
-                    <option value="java">Inprocess</option>
-                    <option value="golang">Golang</option>
-                  </select></div>
-                  <div class="col-6">
-                      <label for="date"><b>Created on</b>
-                      </label><br>
-                      <input style="width:100%;padding:10px;margin:5px;
-                      box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"id="date" name="date" type="date">
-                  </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                  <label for="lang"><b>Created By</b></label><br>
-                  <select style="width:100%;padding:10px;margin:5px;
-                        box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
-                    name="languages" id="lang">
-        
-                    <option value="text">MR.M Srithar</option>
-                    <option value="text">Mr.p Loganathan</option>
-                    <option value="java">Mr.k John</option>
-                   
-                  </select>
-              </div>
-            </div>
-            <div class="modal-footer">
-              
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel
-               
-              </button>
-              <button type="button" class="btn btn-primary">Submit
-               
-              </button>
+                box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
+                name="languages" id="lang" formControlName="project">
+
+                <option value="cardinality">cardinality</option>
+                <option value="Particleblack">Particleblack</option>
+                <option value="MDCRM">MDCRM</option>
+                <option value="JJIS">JJIS</option>
+              </select>
             </div>
           </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="lang"><b>Dev/Qa Team</b></label><br>
+              <select style="width:100%;padding:10px;margin:5px; border-radius: 5px;
+                        box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
+                name="languages" id="lang" formControlName="dev">
+                <option value="HTML">HTML</option>
+                <option value="QA">QA</option>
+                <option value="Angular">Angular</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6"><label for="lang"><b>Status</b></label><br>
+              <select style="width:100%;padding:10px;margin:5px;
+                      box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
+                name="languages" id="lang" formControlName="status">
+                <option value="Completed">Completed</option>
+                <option value="Hold">Hold</option>
+                <option value="Inprocess">Inprocess</option>
+                <option value="Golang">Golang</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="date"><b>Created on</b>
+              </label><br>
+              <input style="width:100%;padding:10px;margin:5px;
+                      box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey" id="date"
+                name="date" type="date" formControlName="createdon">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="lang"><b>Created By</b></label><br>
+              <select style="width:100%;padding:10px;margin:5px;
+                        box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
+                name="languages" id="lang" formControlName="createdby">
+
+                <option value="MR.M Srithar">MR.M Srithar</option>
+                <option value="Mr.p Loganathan">Mr.p Loganathan</option>
+                <option value="Mr.k John">Mr.k John</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal">Cancel
+
+            </button>
+            <button type="button" class="btn btn-primary" (click)="save()">Submit
+
+            </button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 </body>
 
 </html>
