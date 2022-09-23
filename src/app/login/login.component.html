@@ -40,23 +40,27 @@
 
                 </div>
             </div>
-            <form>
+            <form [formGroup]="formgroup" (ngSubmit)="submit()">
                 <div class="row clsgrid">
                     <div class="col-12">
                         <label class="User Name">User Name</label>
                         <input class="form-control fm-l-style ng-dirty ng-valid ng-touched mt-2" name="email"
-                            placeholder="Enter your email" required type="email" ng-reflect-required
-                            ng-reflect-name="email" ng-reflect-model="mccauley@cardinality.ai">
+                             ng-reflect-required
+                            ng-reflect-name="email" ng-reflect-model="mccauley@cardinality.ai" placeholder="Enter your Email" formControlName="username">
+                            <span *ngIf="uname&& uname.invalid && uname.touched" style="color: red">Invalid UserName</span>
                     </div>
                     <div class="mt-10 col-12">
                         <label for="Password">Password</label>
                         <input
                             class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored mt-2"
-                            matinput name="Password" placeholder="Enter your password"><br>
+                            matinput name="Password" placeholder="Enter your Password" formControlName="password"><br>
+                            <span *ngIf="pwrd && pwrd.invalid && pwrd.touched" style="color: red">Invalid Password</span>
                         <i class="fa fa-eye-slash"></i>
-                        <input type="checkbox"><span
+                        <br>
+                        <input type="checkbox" formControlName="checkbox" ><span
                             style="font-family:Poppins; font-weight:medium;font-size:11px;top:-29px;vertical-align:text-top;">
                             &nbsp;I agree to the terms & conditions<br><br><br></span>
+                           
                         <a href="javascript" class="btn-link">Forgot Password?</a><br>
 
                         <button class=" btn btn-primary login" type="button" (click)="sumbit()">

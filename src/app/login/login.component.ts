@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Alert, AlertPromise } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,37 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   title = 'demo-trainee-web';
+  submitted=false;
+  formgroup=new FormGroup({
+    username:new FormControl("",[Validators.required,Validators.email]),
+    password:new FormControl("",[Validators.required,Validators.maxLength(8)]),
+    checkbox:new FormControl("",[Validators.required])
+  });
   constructor( private router:Router) { }
 
   ngOnInit() {
   }
+  get uname(){
+    return this.formgroup.get("username");
+  }
+  get pwrd(){
+    return this.formgroup.get("password");
+  }
   sumbit(){
-    this.router.navigate(['/landing'])
+    this.submitted=true;
+
+    if(this.formgroup.valid)
+    {
+      this.router.navigate(['/landing'])
+      
+    }
+    else{
+      return;
+    }
+
+
+
+
   }
 
 }
