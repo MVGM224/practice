@@ -29,9 +29,9 @@
     <div class="rightLoginSet">
         <div class="clearfix w-100">
             <div class="text-center mb-50 sm-mb-20 lg-mb-50">
-                
+
                 <img class="image1" src="../../assets/images/logo/Cardinality Logo.svg" alt="logo"><br><br>
-            
+
                 <img src="../../assets/images/logo/Signin to continue.svg"><span class="ml-1">Sign in to Continue</span>
 
             </div>
@@ -53,9 +53,9 @@
                         <label for="Password">Password</label>
                         <input
                             class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored mt-2"
-                            matinput name="Password" placeholder="Enter your Password" formControlName="password"><br>
+                            type="Password" placeholder="Enter your Password" formControlName="password"><br>
                             <span *ngIf="pwrd && pwrd.invalid && pwrd.touched" style="color: red">Invalid Password</span>
-                        <i class="fa fa-eye-slash"></i>
+
                         <br>
                         <input type="checkbox" formControlName="checkbox" ><span
                             style="font-family:Poppins; font-weight:medium;font-size:11px;top:-29px;vertical-align:text-top;">
@@ -65,9 +65,9 @@
 
                         <button class=" btn btn-primary login" type="button" (click)="sumbit()">
                             <img src="../../assets/images/logo/Login icon.svg">LOGIN
-                           </button> 
+                           </button>
                     </div><br>
-                
+
 
 
                     <div class="row">
@@ -85,6 +85,6 @@
                     </script>
 
                 </div>
-            </form> 
+            </form>
             </div>
-    
+
