@@ -72,6 +72,7 @@
       <button type="button" class="btn btn-light">Today</button>
     </div>
     <table class="table">
+      
       <tr>
         <td scope="col">No</td>
         <td scope="col">Project</td>
@@ -81,16 +82,16 @@
         <td scope="col">Created by</td>
         <td scope="col">Action</td>
       </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>Cardinality </td>
-        <td>Completed</td>
-        <td>HTML</td>
-        <td>Aug 16,2022</td>
-        <td>Mr.M Sridhar</td>
+      <tr *ngFor="let user of userList,let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{user.project}}</td>
+        <td>{{user.status}}</td>
+        <td>{{user.team}}</td>
+        <td>{{user.createdOn}}</td>
+        <td>{{user.createdBy}}</td>
         <td><img src="3dots.svg"></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <th scope="row">2</th>
         <td>Particleblack</td>
         <td>InProcess</td>
@@ -152,7 +153,7 @@
         <td>Aug 16,2022</td>
         <td>Mr.P Loganathan</td>
         <td><img src="3dots.svg"></td>
-      </tr>
+      </tr> -->
     </table>
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">

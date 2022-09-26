@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -8,10 +9,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class LandingPageComponent implements OnInit {
   landingform: FormGroup
-  arrSave: Array<any>=[];
+  // arrSave: Array<any>=[];
   text:any;
+  userList: any;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
  
 
   ngOnInit() {
@@ -23,14 +25,22 @@ export class LandingPageComponent implements OnInit {
       createdby:new FormControl()
     });
     //this.arrSave=[{"project":"Cardinality" , "status":}]
+    this.http.get('https://api-demo-trainee-dev.cardinalityai.xyz/project').subscribe(res=>{
+      this.userList=res;
+    })
   }
   
   save(){
+    this.http.post('https://api-demo-trainee-dev.cardinalityai.xyz/project/create',{...this.landingform.value}).subscribe(res=>{
+      if(res){
+        console.log("Success")
+      }
+    })
     // this.arr_save && this.arr_save.push(this.landingform.value)
-this.text=this.landingform.value;
-this.arrSave && this.arrSave.push(this.text);
+// this.text=this.landingform.value;
+// this.arrSave && this.arrSave.push(this.text);
     
-    console.log("Success",this.arrSave);
+//     console.log("Success",this.arrSave);
 
   }
 

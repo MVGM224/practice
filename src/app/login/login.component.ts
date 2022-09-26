@@ -1,8 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 // import { AuthserviceService } from '../auth.service';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -11,39 +14,47 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   title = 'demo-trainee-web';
-  submitted=false;
-  formgroup=new FormGroup({
-    username:new FormControl("",[Validators.required,Validators.email]),
-    password:new FormControl("",[Validators.required,Validators.maxLength(8)]),
-    checkbox:new FormControl("",[Validators.required])
+  submitted = false;
+  formgroup = new FormGroup({
+    username: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required, Validators.maxLength(8)]),
+    checkbox: new FormControl("", [Validators.required])
   });
-  constructor( private router:Router){}
-    //  private authservice:AuthserviceService) { }
+
+
+  constructor(private router: Router,
+    // private authservice:AuthserviceService,
+    private http: HttpClient) { }
 
   ngOnInit() {
   }
-  get uname(){
+  get uname() {
     return this.formgroup.get("username");
   }
-  get pwrd(){
+  get pwrd() {
     return this.formgroup.get("password");
   }
-  sumbit(){
-    this.submitted=true;
+  sumbit() {
+    const request = {
+      email: this.formgroup.controls['username'].value,
+      password: this.formgroup.controls['password'].value
+    }
 
-    if(this.formgroup.valid)
-    {
+    this.http.post('https://api-demo-trainee-dev.cardinalityai.xyz/auth/login', request).subscribe(res => {
+
+    })
+    this.submitted = true;
+
+    if (this.formgroup.valid) {
 
       this.router.navigate(['/landing'])
-      
+
     }
-    else{
+    else {
       return;
     }
-
-
-
-
   }
 
 }
+
+
