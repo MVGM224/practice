@@ -14,22 +14,22 @@ export class LandingPageComponent implements OnInit {
   userList: any;
 
   constructor(private http:HttpClient) { }
- 
+
 
   ngOnInit() {
     this.landingform=new FormGroup({
       project:new FormControl(),
-      dev:new FormControl(),
+      team:new FormControl(),
       status:new FormControl(),
-      createdon:new FormControl(),
-      createdby:new FormControl()
+      createdOn:new FormControl(),
+      createdBy:new FormControl()
     });
     //this.arrSave=[{"project":"Cardinality" , "status":}]
     this.http.get('https://api-demo-trainee-dev.cardinalityai.xyz/project').subscribe(res=>{
       this.userList=res;
     })
   }
-  
+
   save(){
     this.http.post('https://api-demo-trainee-dev.cardinalityai.xyz/project/create',{...this.landingform.value}).subscribe(res=>{
       if(res){
@@ -39,10 +39,10 @@ export class LandingPageComponent implements OnInit {
     // this.arr_save && this.arr_save.push(this.landingform.value)
 // this.text=this.landingform.value;
 // this.arrSave && this.arrSave.push(this.text);
-    
+
 //     console.log("Success",this.arrSave);
 
   }
 
-  
+
 }
