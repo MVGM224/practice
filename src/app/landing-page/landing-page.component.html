@@ -201,7 +201,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <label for="lang"><b>team</b></label><br>
+              <label for="lang"><b>Dev/QA Team</b></label><br>
               <select style="width:100%;padding:10px;margin:5px; border-radius: 5px;
                         box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
                 name="languages" id="lang" formControlName="team">
@@ -228,7 +228,7 @@
               </label><br>
               <input style="width:100%;padding:10px;margin:5px;
                       box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey" id="date"
-                name="date" type="date" formControlName="createdOn">
+                name="date" type="date" formControlName="createdOn" format ="yyyy-mm-dd">
             </div>
           </div>
           <div class="row">
@@ -247,7 +247,7 @@
           </div>
           <div class="modal-footer">
 
-            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal">Cancel
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal" id = "cancelbutton">Cancel
 
             </button>
             <button type="button" class="btn btn-primary" (click)="save()">Submit
