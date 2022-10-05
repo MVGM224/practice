@@ -51,6 +51,7 @@ export class LandingPageComponent implements OnInit {
 
   }
   logout(){
+    localStorage.clear();
     this.Router.navigate([""]);
   }
 }
