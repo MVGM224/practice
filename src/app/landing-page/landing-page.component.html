@@ -19,11 +19,20 @@
       </div>
       <div class="col-6">
         <div class="top-nav">
-          <i class="fa fa-search"></i>
-          <input type="text" placeholder="&ensp; &nbsp; Search.." name="search2">
+          <!-- <i class="fa fa-search"></i> -->
+          <input type="text" placeholder="  Search.." name="search2"> &nbsp;
           <img style="margin-right: 20px; margin-left:2px;" src="Notification.svg" alt="notification">
-          <img style="margin-right:8px;" src="Profile.svg" alt="profile">
-          <img src="Down_Arrow_3_.svg" alt="down_arrow">
+          <div class="dropdown">
+            <button class="dropbtn">
+              <img style="margin-right:8px;" src="Profile.svg" alt="profile">
+              <!--<img src="Down_Arrow_3_.svg" alt="down_arrow">-->
+            </button>
+            <div class="dropdown-content">
+              <a>Profile</a>
+              <a (click)="logout()">Logout</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -187,7 +196,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <label ><b>Project</b></label><br>
+              <label><b>Project</b></label><br>
               <select style="width:100%;padding:10px;margin:5px;border-radius: 5px;
                 box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
                 name="languages" id="lang" formControlName="project">
@@ -228,7 +237,7 @@
               </label><br>
               <input style="width:100%;padding:10px;margin:5px;
                       box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey" id="date"
-                name="date" type="date" formControlName="createdOn" format ="yyyy-mm-dd">
+                name="date" type="date" formControlName="createdOn" format="yyyy-mm-dd">
             </div>
           </div>
           <div class="row">
@@ -247,7 +256,8 @@
           </div>
           <div class="modal-footer">
 
-            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal" id = "cancelbutton">Cancel
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal"
+              id="cancelbutton">Cancel
 
             </button>
             <button type="button" class="btn btn-primary" (click)="save()">Submit
