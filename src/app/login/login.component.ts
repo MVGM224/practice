@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { AuthserviceService } from '../auth.service';
@@ -15,13 +15,15 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   title = 'demo-trainee-web';
   submitted = false;
+  show = false;
   formgroup = new FormGroup({
     username: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.maxLength(8)]),
     checkbox: new FormControl("", [Validators.required])
   });
 
-
+  @ViewChild('showhideinput')
+  input;
   constructor(private router: Router,
     // private authservice:AuthserviceService,
     private http: HttpClient) { }
@@ -54,6 +56,14 @@ export class LoginComponent implements OnInit {
       return;
     }
   }
+  toggleShow() {
+    this.show = !this.show;
+    if (this.show) {
+        this.input.nativeElement.type = 'text';
+    } else {
+        this.input.nativeElement.type = 'password';
+    }
+}
 
 }
 
