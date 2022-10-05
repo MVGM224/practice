@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-import { HttpClient } from "@angular/common/http";
-import { CompileShallowModuleMetadata } from "@angular/compiler";
-import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { AuthserviceService } from "../auth.service";
-=======
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../auth.service';
->>>>>>> 4bd74d26a364e70b0250f8d8909a94a48c4fada3
 
 @Component({
   selector: "app-login",
@@ -46,7 +37,7 @@ export class LoginComponent implements OnInit {
   get pwrd() {
     return this.formgroup.get("password");
   }
-  sumbit() {
+  login() {
     const request = {
       email: this.formgroup.controls["username"].value,
       password: this.formgroup.controls["password"].value,
@@ -56,7 +47,7 @@ export class LoginComponent implements OnInit {
         (result) => {
           if (result != null) {
             this.responsedata = result;
-            localStorage.setItem("eml", this.formgroup.value["username"]);
+            localStorage.setItem("email", this.formgroup.value["username"]);
             localStorage.setItem("password", this.formgroup.value["password"]);
             this.router.navigate(["/landing"]);
           }
@@ -64,17 +55,17 @@ export class LoginComponent implements OnInit {
         (err) => console.log(err)
       );
     }
-    if (this.formgroup.valid) {
-      this.authservice.submit(request).subscribe(result => {
-        if (result != null) {
-          this.responsedata = result;
-          localStorage.setItem('token', this.responsedata.jwtToken);
-          this.router.navigate(['/landing']);
-        }
-      },
-        err => console.log(err))
+    // if (this.formgroup.valid) {
+    //   this.authservice.submit(request).subscribe(result => {
+    //     if (result != null) {
+    //       this.responsedata = result;
+    //       localStorage.setItem('token', this.responsedata.jwtToken);
+    //       this.router.navigate(['/landing']);
+    //     }
+    //   },
+    //     err => console.log(err))
 
-    }
+    // }
 
 
   }
