@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-landing-page",
@@ -13,7 +14,8 @@ export class LandingPageComponent implements OnInit {
   text:any;
   userList: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+    private Router: Router) { }
 
   ngOnInit() {
     this.landingform = new FormGroup({
@@ -46,10 +48,9 @@ export class LandingPageComponent implements OnInit {
           document.getElementById('cancelbutton').click();
         }
       });
-    // this.arr_save && this.arr_save.push(this.landingform.value)
-    // this.text=this.landingform.value;
-    // this.arrSave && this.arrSave.push(this.text);
 
-    //     console.log("Success",this.arrSave);
+  }
+  logout(){
+    this.Router.navigate([""]);
   }
 }
