@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import { AuthserviceService } from "../auth.service";
 
 @Component({
   selector: "app-landing-page",
@@ -11,11 +12,14 @@ import { Router } from '@angular/router';
 export class LandingPageComponent implements OnInit {
   landingform: FormGroup;
   // arrSave: Array<any>=[];
-  text:any;
+  text: any;
   userList: any;
 
-  constructor(private http:HttpClient,
-    private Router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private Router: Router,
+    private authservice: AuthserviceService
+  ) {}
 
   ngOnInit() {
     this.landingform = new FormGroup({
@@ -33,24 +37,28 @@ export class LandingPageComponent implements OnInit {
       });
   }
 
+  profile() {
+    console.log(this.authservice);
+  }
   save() {
-
-    this.http.post("https://api-demo-trainee-dev.cardinalityai.xyz/project/create",
-     {...this.landingform.value,  })
+    this.http
+      .post("https://api-demo-trainee-dev.cardinalityai.xyz/project/create", {
+        ...this.landingform.value,
+      })
       .subscribe((res) => {
         if (res) {
           console.log("Success");
-          this.http.get("https://api-demo-trainee-dev.cardinalityai.xyz/project")
-          .subscribe((res) => {
-          this.userList = res;
-      });
+          this.http
+            .get("https://api-demo-trainee-dev.cardinalityai.xyz/project")
+            .subscribe((res) => {
+              this.userList = res;
+            });
           this.landingform.reset();
-          document.getElementById('cancelbutton').click();
+          document.getElementById("cancelbutton").click();
         }
       });
-
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this.Router.navigate([""]);
   }

@@ -47,14 +47,14 @@
                         <input class="form-control fm-l-style ng-dirty ng-valid ng-touched mt-2" name="email"
                              ng-reflect-required
                             ng-reflect-name="email" ng-reflect-model="mccauley@cardinality.ai" placeholder="Enter your Email" formControlName="username">
-                            <span *ngIf="uname&& uname.invalid" style="color: red">Invalid UserName</span>
+                            <!-- <span *ngIf="uname&& uname.invalid && unmae.touched" style="color: red">Invalid UserName</span> -->
                     </div>
                     <div class="mt-10 col-12">
                         <label for="Password">Password</label>
                         <input
                             class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored mt-2"
                              type="password" #showhideinput name="Password" placeholder="Enter your Password" formControlName="password"><br>
-                            <span *ngIf="pwrd && pwrd.invalid" style="color: red">Invalid Password</span>
+                            <!-- <span *ngIf="pwrd && pwrd.invalid && pwrd.touched" style="color: red">Invalid Password</span> -->
                         <!-- <i class="fa fa-eye-slash"></i> -->
                         <i class="fa fa-eye-slash" aria-hidden="true" (click)="toggleShow()"></i>
                         <br>

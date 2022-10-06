@@ -55,26 +55,7 @@ export class LoginComponent implements OnInit {
         (err) => console.log(err)
       );
     }
-    // if (this.formgroup.valid) {
-    //   this.authservice.submit(request).subscribe(result => {
-    //     if (result != null) {
-    //       this.responsedata = result;
-    //       localStorage.setItem('token', this.responsedata.jwtToken);
-    //       this.router.navigate(['/landing']);
-    //     }
-    //   },
-    //     err => console.log(err))
-
-    // }
-
-
   }
-    //   this.http.post('https://api-demo-trainee-dev.cardinalityai.xyz/auth/login', request).subscribe(res => {
-
-    // }
-    // else {
-    //   return;
-    // }
 
     toggleShow() {
       this.show = !this.show;
@@ -84,9 +65,6 @@ export class LoginComponent implements OnInit {
         this.input.nativeElement.type = 'password';
       }
     }
-
-    //   })
-    //   this.submitted = true;
 
 }
 
