@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../auth.service';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -25,9 +25,12 @@ export class LoginComponent implements OnInit {
 
   @ViewChild('showhideinput')
   input;
+
   constructor(private router: Router,
     private authservice: AuthserviceService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private translate: TranslateService
+    ) { }
 
   ngOnInit() {
   }
@@ -64,6 +67,9 @@ export class LoginComponent implements OnInit {
       } else {
         this.input.nativeElement.type = 'password';
       }
+    }
+    useLanguage(language: string) {
+      this.translate.use(language);
     }
 
 }

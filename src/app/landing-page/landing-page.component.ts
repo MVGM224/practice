@@ -2,8 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 import { AuthserviceService } from "../auth.service";
-
 @Component({
   selector: "app-landing-page",
   templateUrl: "./landing-page.component.html",
@@ -18,7 +18,8 @@ export class LandingPageComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private Router: Router,
-    private authservice: AuthserviceService
+    private authservice: AuthserviceService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit() {
@@ -30,8 +31,7 @@ export class LandingPageComponent implements OnInit {
       createdBy: new FormControl(),
     });
     //this.arrSave=[{"project":"Cardinality" , "status":}]
-    this.http
-      .get("https://api-demo-trainee-dev.cardinalityai.xyz/project")
+    this.http.get("https://api-demo-trainee-dev.cardinalityai.xyz/project")
       .subscribe((res) => {
         this.userList = res;
       });
@@ -40,16 +40,15 @@ export class LandingPageComponent implements OnInit {
   profile() {
     console.log(this.authservice);
   }
+
   save() {
-    this.http
-      .post("https://api-demo-trainee-dev.cardinalityai.xyz/project/create", {
+    this.http.post("https://api-demo-trainee-dev.cardinalityai.xyz/project/create", {
         ...this.landingform.value,
       })
       .subscribe((res) => {
         if (res) {
           console.log("Success");
-          this.http
-            .get("https://api-demo-trainee-dev.cardinalityai.xyz/project")
+          this.http.get("https://api-demo-trainee-dev.cardinalityai.xyz/project")
             .subscribe((res) => {
               this.userList = res;
             });
@@ -62,4 +61,14 @@ export class LandingPageComponent implements OnInit {
     localStorage.clear();
     this.Router.navigate([""]);
   }
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
+  delete(data)
+  {
+     this.userList.splice(data,1)
+    // const index: number = this.userList.indexOf(data);
+    // this.userList.splice(index, 1);
+  }
+
 }

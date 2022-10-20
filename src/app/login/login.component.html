@@ -1,91 +1,94 @@
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 <div class="login-left-container" id="slideBox">
-<div class="container-image">
-<div class="wrapper">
-<div class="hero-gallery-inner">
- <div class="gallery-column top-animation">
+  <div class="container-image">
+    <div class="wrapper">
+      <div class="hero-gallery-inner">
+        <div class="gallery-column top-animation">
 
-                    <a><img src="../../assets/images/aws/Img_1.png"></a>
-                    <a><img src="../../assets/images/aws/icon_2.png"></a>
-                    <a><img src="../../assets/images/aws/Img_4.png"></a>
-                    <a><img src="../../assets/images/aws/icon_5.png"></a>
-                </div>
-                <div class="gallery-column reverse-animation">
-                    <a><img src="../../assets/images/aws/icon_1.png"></a>
-                    <a><img src="../../assets/images/aws/Img_3.png"></a>
-                    <a><img src="../../assets/images/aws/icon_4.png"></a>
-                    <a><img src="../../assets/images/aws/Img_5.png"></a>
-                </div>
-                <div class="gallery-column last-animation">
-                    <a><img src="../../assets/images/aws/Img_2.png"></a>
-                    <a><img src="../../assets/images/aws/icon_3.png"></a>
-                    <a><img src="../../assets/images/aws/Img_6.png"></a>
-                    <a><img src="../../assets/images/aws/icon_6.png"></a>
-                </div>
-             </div>
+          <a><img src="../../assets/images/aws/Img_1.png"></a>
+          <a><img src="../../assets/images/aws/icon_2.png"></a>
+          <a><img src="../../assets/images/aws/Img_4.png"></a>
+          <a><img src="../../assets/images/aws/icon_5.png"></a>
         </div>
- </div>
-    <div class="rightLoginSet">
-        <div class="clearfix w-100">
-            <div class="text-center mb-50 sm-mb-20 lg-mb-50">
+        <div class="gallery-column reverse-animation">
+          <a><img src="../../assets/images/aws/icon_1.png"></a>
+          <a><img src="../../assets/images/aws/Img_3.png"></a>
+          <a><img src="../../assets/images/aws/icon_4.png"></a>
+          <a><img src="../../assets/images/aws/Img_5.png"></a>
+        </div>
+        <div class="gallery-column last-animation">
+          <a><img src="../../assets/images/aws/Img_2.png"></a>
+          <a><img src="../../assets/images/aws/icon_3.png"></a>
+          <a><img src="../../assets/images/aws/Img_6.png"></a>
+          <a><img src="../../assets/images/aws/icon_6.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rightLoginSet">
 
-                <img class="image1" src="../../assets/images/logo/Cardinality Logo.svg" alt="logo"><br><br>
+    <div class="clearfix w-100">
+      <div class="text-center mb-50 sm-mb-20 lg-mb-50">
 
-                <img src="../../assets/images/logo/Signin to continue.svg"><span class="ml-1">Sign in to Continue</span>
+        <img class="image1" src="../../assets/images/logo/Cardinality Logo.svg" alt="logo"><br><br>
 
+        <img src="../../assets/images/logo/Signin to continue.svg"><span class="ml-1">{{'sign' | translate}}</span>
+
+      </div>
+      <div class="loginBottomSet">
+        <div class="login-content clearfix">
+
+        </div>
+      </div>
+      <form [formGroup]="formgroup">
+        <div class="row clsgrid">
+          <div class="col-12">
+
+            <label class="User Name">{{'user_name' | translate}}</label>
+            <input class="form-control fm-l-style ng-dirty ng-valid ng-touched mt-2" name="email" ng-reflect-required
+              ng-reflect-name="email" ng-reflect-model="mccauley@cardinality.ai"
+              [placeholder]="'enter_your_email' | translate" formControlName="username">
+            <!-- <span *ngIf="uname&& uname.invalid && unmae.touched" style="color: red">Invalid UserName</span> -->
+          </div>
+          <div class="mt-10 col-12">
+            <label for="Password">{{'password' | translate}}</label>
+            <input class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored mt-2"
+              autocomplete="off" type="password" #showhideinput name="Password"
+              [placeholder]="'enter_your_password' | translate" formControlName="password"><br>
+            <!-- <span *ngIf="pwrd && pwrd.invalid && pwrd.touched" style="color: red">Invalid Password</span> -->
+            <!-- <i class="fa fa-eye-slash"></i> -->
+            <i class="fa fa-eye-slash" aria-hidden="true" (click)="toggleShow()"></i>
+            <br>
+            <input type="checkbox" formControlName="checkbox"><span
+              style="font-family:Poppins; font-weight:medium;font-size:11px;top:-29px;vertical-align:text-top;">
+              &nbsp;{{'agree' | translate}}<br><br><br></span>
+
+            <!-- <a href="javascript:void(0)" class="btn-link">{{'forgot' | translate}}</a>-->
+            <br>
+
+            <button class=" btn btn-primary login" type="button" (click)="login()">
+              <img src="../../assets/images/logo/Login icon.svg">{{'login' | translate}}
+            </button>
+          </div><br>
+
+          <div class="row">
+            <div class="col-md-3">
+              <a class="btn btn-outline-dark" role="button"
+                style="margin-left:60px;background-color:white;color:#1d2124">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                  class="img" alt="sing in goole">
+                &nbsp;&nbsp;{{'continue' | translate}}
+              </a>
             </div>
-            <div class="loginBottomSet">
-                <div class="login-content clearfix">
+          </div>
 
-                </div>
-            </div>
-            <form [formGroup]="formgroup">
-                <div class="row clsgrid">
-                    <div class="col-12">
-                        <label class="User Name">User Name</label>
-                        <input class="form-control fm-l-style ng-dirty ng-valid ng-touched mt-2" name="email"
-                             ng-reflect-required
-                            ng-reflect-name="email" ng-reflect-model="mccauley@cardinality.ai" placeholder="Enter your Email" formControlName="username">
-                            <!-- <span *ngIf="uname&& uname.invalid && unmae.touched" style="color: red">Invalid UserName</span> -->
-                    </div>
-                    <div class="mt-10 col-12">
-                        <label for="Password">Password</label>
-                        <input
-                            class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored mt-2"
-                             type="password" #showhideinput name="Password" placeholder="Enter your Password" formControlName="password"><br>
-                            <!-- <span *ngIf="pwrd && pwrd.invalid && pwrd.touched" style="color: red">Invalid Password</span> -->
-                        <!-- <i class="fa fa-eye-slash"></i> -->
-                        <i class="fa fa-eye-slash" aria-hidden="true" (click)="toggleShow()"></i>
-                        <br>
-                        <input type="checkbox" formControlName="checkbox" ><span
-                            style="font-family:Poppins; font-weight:medium;font-size:11px;top:-29px;vertical-align:text-top;">
-                            &nbsp;I agree to the terms & conditions<br><br><br></span>
-
-                        <a href="javascript:void(0)" class="btn-link">Forgot Password?</a><br>
-
-                        <button class=" btn btn-primary login" type="button" (click)="login()">
-                            <img src="../../assets/images/logo/Login icon.svg">LOGIN
-                           </button>
-                    </div><br>
-
-
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="btn btn-outline-dark" role="button"
-                                style="margin-left:60px;background-color:white;color:#1d2124">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"class="img" alt="sing in goole">
-                                &nbsp;&nbsp;Continue with Google
-                            </a>
-                        </div>
-                    </div>
-
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-                    </script>
-
-                </div>
-            </form>
-            </div>
-
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+          </script><Br><br>
+          <button (click)="useLanguage('English')">English</button>
+          <button (click)="useLanguage('Spanish')">Spanish</button>
+        </div>
+      </form>
+    </div>

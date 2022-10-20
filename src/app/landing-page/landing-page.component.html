@@ -20,7 +20,9 @@
       <div class="col-6">
         <div class="top-nav">
           <!-- <i class="fa fa-search"></i> -->
-          <input type="text" placeholder="  Search.." name="search2"> &nbsp;
+          <button (click)="useLanguage('English')" class="btn btn-outline-secondary">English</button>
+          <button (click)="useLanguage('Spanish')" class="btn btn-outline-secondary">Spanish</button>&nbsp;&nbsp;
+          <input type="text" [placeholder]="'search' | translate" name="search2"> &nbsp;
           <img style="margin-right: 20px; margin-left:2px;" src="Notification.svg" alt="notification">
           <div class="dropdown">
             <button class="dropbtn">
@@ -28,8 +30,8 @@
               <!--<img src="Down_Arrow_3_.svg" alt="down_arrow">-->
             </button>
             <div class="dropdown-content">
-              <a>Profile</a>
-              <a (click)="logout()">Logout</a>
+              <a>{{'profile' | translate}}</a>
+              <a (click)="logout()">{{'logout' | translate}}</a>
             </div>
           </div>
 
@@ -43,53 +45,53 @@
       <div class="columns">
         <img class="col-img" src="Project-Dev.svg">
         <h2>26,500</h2>
-        <h6>Project-Dev</h6>
+        <h6>{{'project' | translate}}-Dev</h6>
       </div>
       <div class="columns">
         <img class="col-img" src="Project-QA.svg">
         <h2>236</h2>
-        <h6>Project-QA</h6>
+        <h6>{{'project' | translate}}-QA</h6>
       </div>
       <div class="columns">
         <img class="col-img" src="AWS Market Place.svg">
         <h2>313</h2>
-        <h6>AWS Market Place</h6>
+        <h6>AWS {{'market_place' | translate}}</h6>
       </div>
       <div class="columns">
         <img class="col-img" src="AWS Accounts.svg">
         <h2>52</h2>
-        <h6>AWS Accounts</h6>
+        <h6>AWS {{'accounts' | translate}}</h6>
       </div>
       <div class="columns">
         <img class="col-img" src="Total Vaccination (INR).svg">
         <h2>59</h2>
-        <h6>Total Vacination(INR)</h6>
+        <h6>{{'total_vaccination' | translate}}(INR)</h6>
       </div>
     </div>
   </div>
   <div class="container-fluid">
-    <h4>Project Reports
+    <h4>{{'project_reports' | translate}}
       <a class="btn btn-outline-primary"  data-target="#add-decision" data-toggle="modal">
         <button class="btn addBtnsNew">+</button>&nbsp;
-        <a>Add</a>
+        <a>{{'add' | translate}}</a>
       </a>
     </h4>
     <div class="text-right">
-      <button type="button" class="btn btn-primary">All</button>
-      <button type="button" class="btn btn-light">Monthly</button>
-      <button type="button" class="btn btn-light">Weekly</button>
-      <button type="button" class="btn btn-light">Today</button>
+      <button type="button" class="btn btn-primary">{{'all' | translate}}</button>
+      <button type="button" class="btn btn-light">{{'monthly' | translate}}</button>
+      <button type="button" class="btn btn-light">{{'weekly' | translate}}</button>
+      <button type="button" class="btn btn-light">{{'today' | translate}}</button>
     </div>
     <table class="table">
 
       <tr>
-        <td scope="col"><b>No</b></td>
-        <td scope="col"><b>Project</b></td>
-        <td scope="col"><b>Status</b></td>
-        <td scope="col"><b>Dev/ QA Team</b></td>
-        <td scope="col"><b>Created on</b></td>
-        <td scope="col"><b>Created by</b></td>
-        <td scope="col"><b>Action</b></td>
+        <td scope="col"><b>{{'no' | translate}}</b></td>
+        <td scope="col"><b>{{'project' | translate}}</b></td>
+        <td scope="col"><b>{{'status' | translate}}</b></td>
+        <td scope="col"><b>Dev/ QA {{'team' | translate}}</b></td>
+        <td scope="col"><b>{{'created_on' | translate}}</b></td>
+        <td scope="col"><b>{{'created_by' | translate}}</b></td>
+        <td scope="col"><b>{{'action'|translate}}</b></td>
       </tr>
       <tr *ngFor="let user of userList,let i=index">
         <th scope="row">{{i+1}}</th>
@@ -98,7 +100,7 @@
         <td>{{user.team}}</td>
         <td>{{user.createdOn |date: 'dd/MM/yyyy'}}</td>
         <td>{{user.createdBy}}</td>
-        <td><img src="3dots.svg"></td>
+        <td><button class="btn btn-outline-danger" (click)="delete(i)">{{'delete' | translate}}</button></td>
       </tr>
       <!-- <tr>
         <th scope="row">2</th>
@@ -167,13 +169,13 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item disabled">
-          <a class="page-link" tabindex="-1" aria-disabled="true">Previous</a>
+          <a class="page-link" tabindex="-1" aria-disabled="true">{{'previous' | translate}}</a>
         </li>
         <li class="page-item active"><a class="page-link">1</a></li>
         <li class="page-item"><a class="page-link">2</a></li>
         <li class="page-item"><a class="page-link">3</a></li>
         <li class="page-item">
-          <a class="page-link">Next</a>
+          <a class="page-link">{{'next' | translate}}</a>
         </li>
       </ul>
     </nav>
@@ -190,13 +192,13 @@
       <div class="modal-content">
         <div class="container" [formGroup]="landingform" (ngSubmit)="onSubmit()">
           <div class="modal-header">
-            <h4 class="modal-title">Add Project</h4>
+            <h4 class="modal-title">{{'add_project' | translate}}</h4>
             <button style="border-color: white;"> <i style="font-size:24px;color:bl;" class="fa"
                 data-dismiss="modal">&#xf00d;</i></button>
           </div>
           <div class="row">
             <div class="col-12">
-              <label><b>Project</b></label><br>
+              <label><b>{{'project' | translate}}</b></label><br>
               <select style="width:100%;padding:10px;margin:5px;border-radius: 5px;
                 box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
                 name="languages" id="lang" formControlName="project">
@@ -210,7 +212,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <label for="lang"><b>Dev/QA Team</b></label><br>
+              <label for="lang"><b>Dev/QA {{'team' | translate}}</b></label><br>
               <select style="width:100%;padding:10px;margin:5px; border-radius: 5px;
                         box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
                 name="languages" id="lang" formControlName="team">
@@ -222,7 +224,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6"><label for="lang"><b>Status</b></label><br>
+            <div class="col-6"><label for="lang"><b>{{'status' | translate}}</b></label><br>
               <select style="width:100%;padding:10px;margin:5px;
                       box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border: 1px solid grey;color:grey"
                 name="languages" id="lang" formControlName="status">
